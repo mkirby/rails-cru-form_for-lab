@@ -1,0 +1,19 @@
+<h1><%= @artist.name %></h1>
+<p>Bio: <%= @artist.bio%></p>
+<div>
+    <h2>Songs:</h2>
+    <ul>
+    <% @artist.songs.each do |song|%>
+        <li><%= link_to song.name, song_path(song) %></li>
+        <% end%>
+    </ul>
+</div>
+<div>
+    <h2>Genres:</h2>
+    <ul>
+    <% @artist.songs.each do |song|%>
+        <li><%= link_to song.genre.name, genre_path(song.genre) %></li>
+        <% end%>
+    </ul>
+</div>
+<p><%= button_to "All Artists", artists_path, :method => :get %></p>
